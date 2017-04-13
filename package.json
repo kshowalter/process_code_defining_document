@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kshowalter/process_code_defining_document/issues"
   },
-  "homepage": "https://github.com/kshowalter/process_code_defining_document#readme"
+  "homepage": "https://github.com/kshowalter/process_code_defining_document#readme",
+  "dependencies": {
+    "markdown-pdf": "^7.0.0"
+  }
 }
