@@ -1,0 +1,19 @@
+{
+  "name": "process_code_defining_document",
+  "version": "0.1.0",
+  "description": "CLI. This extracts the code from a markdown document, saves it to a file, then renders a pdf of the markdown.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kshowalter/process_code_defining_document.git"
+  },
+  "author": "Keith Showalter",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kshowalter/process_code_defining_document/issues"
+  },
+  "homepage": "https://github.com/kshowalter/process_code_defining_document#readme"
+}
