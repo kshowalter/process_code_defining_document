@@ -20,7 +20,7 @@ var mk_pdf = function(md_path, pdf_path, css_path){
   markdownpdf(options)
     .from( md_path )
     .to( pdf_path, function (){
-      console.log('Done');
+      console.log('pdf done');
     });
 
 };

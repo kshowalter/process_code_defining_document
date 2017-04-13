@@ -3,8 +3,6 @@ var path = require('path');
 var extract_code = require('./extract_code');
 var mk_pdf = require('./mk_pdf');
 
-console.log(process.argv);
-
 var args_array = [];
 for( var i = 2; true; i++ ){
   var input = process.argv[i];
@@ -18,15 +16,17 @@ var project_name = input_md_filename.split('.')[0];
 var output_code_filename = args_array[1] || project_name+'.js' ;
 
 // Set base path
-var base_path = path.join(__dirname, '../');
+var project_path = path.resolve(process.argv[1], '../../../');
+var local_path = __dirname;
 
 // file paths
-var input_md_path = path.join(base_path, input_md_filename);
-var output_code_path = path.join(base_path, output_code_filename);
-var output_pdf_path = path.join(base_path, input_md_filename+'.pdf');
-var output_css_path = path.join(base_path, '/extract_code/style.css');
-var input_code_pre_path = path.join(base_path, '/javascript/' + output_code_filename+'.pre');
-var input_code_post_path = path.join(base_path, '/javascript/' + output_code_filename+'.post');
+var input_md_path = path.join(project_path, input_md_filename);
+var output_code_path = path.join(project_path, output_code_filename);
+var output_pdf_path = path.join(project_path, project_name+'.pdf');
+var input_code_pre_path = path.join(project_path, output_code_filename+'.pre');
+var input_code_post_path = path.join(project_path, output_code_filename+'.post');
+
+var output_css_path = path.join(local_path, 'style.css');
 
 // read markdown string
 var input_string = fs.readFileSync(input_md_path, {encoding: 'utf8'});
