@@ -1,7 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 
-var code_check = /^\s+\S/;
+var code_check = /^\s+[^\S]/;
 
 var extract_code = function(input_string){
   //var input = extract_metadata(input_string);
@@ -11,26 +11,37 @@ var extract_code = function(input_string){
     var lines = input_string.split('\n');
 
     var output_code_array = [];
+    var output_document_array = [];
+    var code_string;
+    var standard_document_string;
+
 
     lines.forEach(function(line, i){
       var matches = code_check.exec(line);
-      if( matches !== null) {
-        var whitespace_size = matches[0].length-1;
-        var unindented_code_line = line.slice(whitespace_size);
-
+      if( matches !== null && line.trim()[0] !== '*' ) {
+        var whitespace_size = matches[0].length;
+        //var unindented_code_line = line.slice(whitespace_size);
+        var unindented_code_line = line.trim();
         var code_line = '  ' + unindented_code_line;
-
         output_code_array.push(code_line);
+      } else {
+        output_document_array.push(line);
       }
+
     });
 
-    var output_string = output_code_array.join('\n');
+    code_string = output_code_array.join('\n');
+    standard_document_string = output_document_array.join('\n');
 
   } else {
-    output_string = input_string;
+    code_string = input_string;
+    standard_document_string = input_string;
   }
 
-  return output_string;
+  return {
+    code_string: code_string,
+    standard_document_string: standard_document_string
+  }
 };
 
 
