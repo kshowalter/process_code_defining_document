@@ -22,7 +22,7 @@ var extract_code = function(input_string){
       if( matches !== null && line.trim()[0] !== '*' ) {
         var whitespace_size = matches[0].length;
         //var unindented_code_line = line.slice(whitespace_size);
-        var unindented_code_line = line.trim();
+        var unindented_code_line = line.slice(4);
         var code_line = '  ' + unindented_code_line;
         output_code_array.push(code_line);
       } else {
