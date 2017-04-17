@@ -1,7 +1,8 @@
 var fs = require('fs');
 var path = require('path');
 
-var code_check = /^\s+[^\S]/;
+//var code_check = /^\s+[^\S]/;
+var code_check = /^\s{4}/;
 
 var extract_code = function(input_string){
   //var input = extract_metadata(input_string);
